@@ -2,44 +2,40 @@
 public class Main {
 
 	public static void main(String[] args) {
-		Courses courses1 = new Courses(
-				1,
-				"Software Developer Training Camp (C# + ANGULAR)");
+		Instructor instructor1 = new Instructor(1, "Engin", "Demiroğ", "Matematik", 1);
+		Instructor instructor2 = new Instructor(2, "Kerem", "Varış", "Türkçe", 2);
 		
-		Courses courses2 = new Courses(
-				2,
-				"Software Developer Training Camp (Java + React) ");
-		
-		Courses courses3 = new Courses();
-				courses3.id= 3;
-				courses3.courseName= "Basic Course for Introduction to Programming";
-				
-		Courses[] courses = {courses1,courses2,courses3};
-				for (Courses course : courses) {
-					System.out.println("Kurslar:"+""+course.courseName+"");
-				}
-		Teachers teacher1 = new Teachers(
-				1,
-				"Engin",
-				"Demirog");
-		Teachers teacher2 = new Teachers(
-				1,
-				"Kerem",
-				"Varış");
-		Teachers teacher3 = new Teachers(
-				1,
-				"xxxx",
-				"yyyy");
-		
-		System.out.println("---------------------------------------------------");	
-		Teachers[] teachers = {teacher1,teacher2,teacher3};
-		for (Teachers teacher: teachers) {
-			System.out.println("Eğitmenler:"+" "+teacher.name+" "+teacher.lastName+" ");
-		}
-		System.out.println("---------------------------------------------------");	
-		CourseManager courseManager = new CourseManager();
-		courseManager.add(courses2, teacher1);
-
+		InstructorManager instructorManager = new InstructorManager();
+		System.out.println("Eğitmenlerimiz:");
+		instructorManager.LoginInstructor(instructor2);
+	    instructorManager.LoginInstructor(instructor1);
+	    System.out.println("------------------------");
+	    System.out.println("Çıkarılan eğitmenler:");
+	    instructorManager.DeleteInstructor(instructor2);
+	    System.out.println("------------------------");
+	    
+	    Student student1 = new Student(3, "Aslı" , "Tangöz","Matematik","Nezih");
+	    Student student2 = new Student(4, "Kerem", "Gönlüm","Türkçe", "Mustafa");
+	    Student student3 = new Student(5, "Gül", "Tavlan","Türkçe","Mehmet");
+	    
+	    StudentManager studentManager = new StudentManager();
+	    System.out.println("Öğrencilerimiz:");
+	    studentManager.DetailStudent(student1);
+	    studentManager.DetailStudent(student2);
+	    studentManager.DetailStudent(student3);
+	    System.out.println("----------------------");
+	    System.out.println("Güncellenen öğrenciler:");
+	    studentManager.DeleteStudent(student2);
+	    System.out.println("---------------");
+	    System.out.println("Öğrenci giriş:");
+	    studentManager.LoginStudent(student3);
+	    studentManager.LoginStudent(student1);
+	    
+	    User user1 = new User(7, "Furkan", "Tetik", "Türkçe");
+	    User user2 = new User(12, "Emir", "Cansuz", "Matematik");
+	    UserManager userManager = new UserManager();
+	    System.out.println("Kullanıcılar:");
+	    userManager.LoginUser(user2);
+	    userManager.LoginUser(user1);
 	}
-
 }
